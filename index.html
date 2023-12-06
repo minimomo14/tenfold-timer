@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tenfold BJJ - Timer</title>
+</head>
+<body>
+    <div class="wrapper" id="wrapper">
+        <!-- timer top-bar -->
+        <div class="top-bar" id="top-bar">
+          <h2>Tenfold BJJ - Timer</h2>  
+          <br>
+          <h5 class="z-index"></h5>
+        </div>
+
+        <!-- timer control button -->
+        <div class="button-wrapper">
+            <a href="#" class="wrapper-effect" id="start-button" onclick="startClock()"><i class="material-icons">alarm-on</i>START</a>
+            <a href="#" class="wrapper-effect" id="pause-button" onclick="pauseClock()"><i class="material-icons">pause</i>PAUSE</a>
+            <a href="#" class="wrapper-effect" id="reset-button" onclick="clearClock()"><i class="material-icons">clear</i>RESET</a>
+        </div>
+
+        <!-- timer-clock -->
+        <div class="row">
+           <div class="app-wrapper" id="app-wrapper">
+            <!-- clock -->
+            <div id="timer">
+                <div id="current-timer">
+                    <div id="timer-left" class="hidden">
+                        <h3>TIME-LEFT</h3><br>
+                        <span class="time-left-numbers">{{timerTimes.workTime}}</span>
+                    </div>
+                    <div id="break-left">
+                        <h3>BREAK</h3><br>
+                        <span class="timer-left-numbers">{{}timerTimes.breakTime}</span>
+                    </div>
+                    <div id="round">
+                        <h4>ROUND</h4><br>
+                        <span class="round-numbers">{{rounds.roundsLeft}}/{{rounds.totalRounds}}</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Options grid -->
+            <div id="options">
+                <div class="switch">
+                    <p>SOUNDS: 
+                        <p>
+                            <label for="">
+                                OFF
+                                <input type="checkbox" id="volume-switch">
+                                <span class="lever">ON</span>
+                                ON
+                            </label>
+                        </p>
+                    </p>
+                </div>
+
+                <div class="option-input">
+                    <p>TIME ON:</p>
+                    <i class="material-icons">remove</i>
+                    <p class="option-time">{{optionTimes.timeOn}}</p>
+                    <i class="material-icons" onclick="changeTimeOn(optionTimes.timeOn, '+1')">add</i>
+                </div>
+
+                <div class="option-input">
+                    <p>TIME OFF: </p>
+                    <i class="material-icons">remove</i> 
+                    <p class="option-time">{{optionTimes.timeOn}}</p>
+                    <i class="material-icons" onclick="changeTimeOn(optionTimes.timeOn, '+1')">add</i>
+                </div>
+
+                <div class="option-input">
+                    <p>ROUNDS: </p>
+                    <i class="material-icons">remove</i>
+                    <p class="option-time">{{optionTimes.timeOn}}</p>
+                    <i class="material-icons" onclick="changeTimeOn(optionTimes.timeOn, '+1')">add</i>
+                </div>
+            </div>
+
+
+
+        </div> 
+        </div>
+    </div>
+</body>
+</html>
