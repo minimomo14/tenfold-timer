@@ -2,6 +2,7 @@
 
 body {
     font-family: 'Montserrat', sans-serif;
+    font-size: 2em;
 }
 
 .wrapper {
@@ -14,6 +15,33 @@ body {
     margin-top: 20px;
 }
 
+#timer-break {
+    display: none;
+    color: red;
+    background-color: black;
+    font-size: 2em;
+}
+
 .button-wrapper {
     margin-top: 20px;
+}
+
+#options {
+    margin-top: 20px;
+}
+
+.option-input {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.option-input button {
+    padding: 5px;
+}
+
+#work-time-value {
+    font-size: 1.2em;
+    margin-left: 10px;
+    margin-right: 10px;
 }
