@@ -1,11 +1,10 @@
 let timer;
-let workTime = 10 // set default timer for 10 seconds
-let breakTime = 45; // set default break timer in 45 seconds
-// let isRunning = false;
+// let workTime = 3 // set default timer for 10 seconds
+// let breakTime = 5; // set default break timer in 45 seconds
 let isBreakTime = false;
 
 function startTimer() {
-    clearInterval(timer);
+    pauseTimer();
     timer = setInterval(updateTimer, 1000);
 }
 
@@ -14,39 +13,71 @@ function pauseTimer() {
 }
 
 function resetTimer() {
-    clearInterval(timer);
+    pauseTimer();
     isBreakTime = false;
+    console.log("Clear timer", timer);
     document.getElementById('timer-display').textContent = '00:00';
+    hideBreakTime();
+}
+
+
+function getWorkTime() {
+    let workTimeInput = document.getElementById('work-time-input');
+    // add event listener to track changes
+    workTimeInput.addEventListener('input', handleInputUpdates);
+
+    return parseInt(workTimeInput.value, 10) || 3;
+} 
+
+
+function getBreakTime() {
+    let breakTimeInput = document.getElementById('break-time-input');
+    // add event listener to track changes
+    breakTimeInput.addEventListener('input', handleInputUpdates);
+
+    return parseInt(breakTimeInput.value, 10) || 5;
+} 
+
+
+function handleInputUpdates() {
+    // to reset timer
+    resetTimer();
+
+    //to start timer with update value
+    startTimer();
 }
 
 function updateTimer() {
     const display = document.getElementById('timer-display');
+    let currentTimer = isBreakTime ? getBreakTime() : getWorkTime();
 
-    const minutes = Math.floor(workTime / 60);
-    const remainingTime = workTime % 60;
+    const minutes = Math.floor(currentTimer / 60);
+    const remainingTime = currentTimer % 60;
 
-    if (workTime <= 0) {
+    if (currentTimer <= 0) {
         clearInterval(timer);
-            if (isBreakTime) {
-                showBreakTime(false);
-                workTime = parseInt(document.getElementById('work-time-input').value, 10) || 10; // Reset work time to input value or default
-            } else {
-                showBreakTime(true);
-                workTime = parseInt(document.getElementById('break-time-input').value, 10) || 45; // Reset work time to break time
-            }
-            isBreakTime = !isBreakTime;
-            startTimer(); // Start the timer for the new interval
+        if (isBreakTime) {
+            isBreakTime = false;
+            hideBreakTime(true);
+           startTimer(); // Start the timer for the new interval
         } else {
-            display.textContent = `${String(minutes).padStart(2, '0')}:${String(remainingTime).padStart(2, '0')}`;
-            // Play the sound when the countdown reaches 3 seconds
-            if (workTime === 3) {
-                playCountdownSound();
-            }
-            workTime--;
+            isBreakTime = true;
+            hideBreakTime(false);
+            startTimer();
         }
-    
-        console.log(workTime)
+
+    } else {
+        display.textContent = `${String(minutes).padStart(2, '0')}:${String(remainingTime).padStart(2, '0')}`;
+        // Play the sound when the countdown reaches 3 seconds
+        if (currentTimer === 3) {
+            playCountdownSound();
+        }
+
+        // currentTimer--;
+        console.log("is current number?",currentTimer)
     }
+
+}
 
 
 // Set Break-time functions here
@@ -97,3 +128,4 @@ function updateCurrentDateTime() {
 // Update current date and time initially
 updateCurrentDateTime();
 console.log("current!")
+updateTimer();
