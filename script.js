@@ -1,10 +1,11 @@
 let timer;
-let setTimer = 10 // set default timer for 10 seconds
+let workTime = 10 // set default timer for 10 seconds
 let breakTime = 45; // set default break timer in 45 seconds
 // let isRunning = false;
 let isBreakTime = false;
 
 function startTimer() {
+    clearInterval(timer);
     timer = setInterval(updateTimer, 1000);
 }
 
@@ -21,42 +22,55 @@ function resetTimer() {
 function updateTimer() {
     const display = document.getElementById('timer-display');
 
-        const minutes = Math.floor(setTimer / 60);
-        const remainingTime = setTimer % 60;
+    const minutes = Math.floor(workTime / 60);
+    const remainingTime = workTime % 60;
 
-        if (setTimer <= 0) {
-            clearInterval(timer);
-            if(isBreakTime) {
+    if (workTime <= 0) {
+        clearInterval(timer);
+            if (isBreakTime) {
                 showBreakTime(false);
+                workTime = parseInt(document.getElementById('work-time-input').value, 10) || 10; // Reset work time to input value or default
             } else {
                 showBreakTime(true);
-                setTimer = breakTime;
-                isBreakTime = true;
-                startTimer();
-            } 
+                workTime = parseInt(document.getElementById('break-time-input').value, 10) || 45; // Reset work time to break time
+            }
+            isBreakTime = !isBreakTime;
+            startTimer(); // Start the timer for the new interval
         } else {
             display.textContent = `${String(minutes).padStart(2, '0')}:${String(remainingTime).padStart(2, '0')}`;
-            setTimer--;
+            // Play the sound when the countdown reaches 3 seconds
+            if (workTime === 3) {
+                playCountdownSound();
+            }
+            workTime--;
         }
-        console.log("is here")
-    }
     
+        console.log(workTime)
+    }
 
 
 // Set Break-time functions here
 function showBreakTime(show) {
-   const breakTimeElem = document.getElementById('timer-break');
-   if(show) {
-    breakTimeElem.style.display = 'block';
-   } else {
-    breakTimeElem.style.display = 'none';
-   }
+    const breakTimeElem = document.getElementById('timer-break');
+    if (show) {
+        breakTimeElem.style.display = 'block';
+    } else {
+        breakTimeElem.style.display = 'none';
+    }
 }
 
 function hideBreakTime() {
     showBreakTime(false);
 }
 
+function playCountdownSound() {
+    const countdownSound = document.getElementById('countdownSound');
+
+    // Check if the audio is supported and the sound is not already playing
+    if (countdownSound && countdownSound.paused) {
+        countdownSound.play();
+    }
+}
 
 
 // Add function to update current date and time
@@ -66,9 +80,9 @@ function updateCurrentDateTime() {
 
     // For the current date and time
     const now = new Date();
-    const optionsDate = { weekday: 'short', year: 'numeric', month: 'long', day: 'numeric'};
+    const optionsDate = { weekday: 'short', year: 'numeric', month: 'long', day: 'numeric' };
     const optionsTime = { hour: 'numeric', minute: 'numeric', hour12: true };
-    
+
     const formattedDate = now.toLocaleString('en-US', optionsDate);
     const formattedTime = now.toLocaleString('en-US', optionsTime);
 
@@ -82,4 +96,4 @@ function updateCurrentDateTime() {
 
 // Update current date and time initially
 updateCurrentDateTime();
-console.log("current time!")
+console.log("current!")
