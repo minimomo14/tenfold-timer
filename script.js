@@ -46,3 +46,14 @@ function resetTimer() {
     document.getElementById('timer-display').textContent = '00:00';
 }
 
+// Add function to update current date and time
+function updateCurrentDateTime() {
+    const currentDateTimeElement = document.getElementById('current-date-time');
+    const now = new Date();
+    const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric', second: 'numeric', hour12: true };
+    const formattedDateTime = now.toLocaleDateString('en-US', options);
+    currentDateTimeElement.textContent = formattedDateTime;
+}
+
+// Update current date and time initially
+updateCurrentDateTime();

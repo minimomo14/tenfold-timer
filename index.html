@@ -1,20 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tenfold BJJ - Timer</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
-    <div class="wrapper" id="wrapper">
-        <!-- timer top-bar -->
-        <div class="top-bar" id="top-bar">
-          <h2>Tenfold BJJ - Timer</h2>  
-          <br>
-          
-        </div>
 
+<body>
+    <header>
+        <div class="wrapper" id="wrapper">
+            <!-- timer top-bar -->
+            <div class="top-bar" id="top-bar">
+                <h2 id="timer-title">Tenfold BJJ - Timer</h2>
+                <br>
+                <h3 id="current-date-time"></h3>
+            </div>
+    </header>
+
+    <main>
         <!-- timer control button -->
         <div class="button-wrapper">
             <div class="timer-display" id="timer-display">00:00</div>
@@ -23,7 +28,9 @@
             <button id="reset-button" onclick="resetTimer()">RESET</button>
 
         </div>
-<!-- 
+    </main>
+
+    <!-- 
         timer-clock
         <div class="row">
            <div class="app-wrapper" id="app-wrapper">
@@ -52,7 +59,7 @@
                 </div>
             </div> -->
 
-            <!-- Options grid
+    <!-- Options grid
             <div id="options">
                 <div class="switch">
                     <p>SOUNDS: 
@@ -80,10 +87,11 @@
                     <input type="number" id="break-time-input" value="45">
                     <button onclick="updateBreakTime()">Set</button>
                 </div> -->
-        <!-- </div>  -->
-        </div>
+    <!-- </div>  -->
+    </div>
     </div>
 
     <script type="text/javascript" src="./script.js"></script>
 </body>
+
 </html>

@@ -4,6 +4,7 @@ body {
     font-family: 'Montserrat', sans-serif;
     font-size: 2em;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     height: 100vh;
@@ -14,7 +15,6 @@ body {
     text-align: center;
     margin-top: 50px;
 }
-
 
 
 #timer-display {
@@ -39,6 +39,7 @@ button {
 
 .button-wrapper {
     margin-top: 20px;
+    text-align: center;
 }
 
 #options {
