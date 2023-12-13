@@ -1,83 +1,48 @@
 let timer;
-// set default timer to 6 mins = 360 seconds
-let seconds = 360;
-let breakTime = 45; // set break-time for 45 seconds as default
-let isBreakTime = false;
+let breakTime = 45; // set default break timer in 45 seconds
+let isRunning = false;
 
-function startClock() {
-    timer = setInterval(updateClock, 1000);
+function startTimer() {
+    if (!isRunning) {
+        isRunning = true;
+        countDown(10, "Work timer completed!", setBreakTime);
+    }
 }
 
-function pauseClock() {
-    clearInterval(timer);
+
+// Set Break-time functions here
+function setBreakTime() {
+    countDown(breakTime, "Break-time completed!", () => {
+        console.log("Break-time completed");
+    });
 }
 
-function clearClock() {
-    clearInterval(timer);
-    seconds = 360;
-    breakTime = 45;
-    isBreakTime = false;
-    updateClock();
-    hideBreakTime();
-    updateWorkTimeValue();
-}
+function countDown(initialTime, message, onComplete) {
+    let timeInSeconds = initialTime;
+    const display = document.getElementById('timer-display');
 
-function updateClock() {
-    const minutes = Math.floor(seconds / 60);
-    const remainingSeconds = seconds % 60;
+    timer = setInterval(function() {
+        const minutes = Math.floor(timeInSeconds / 60);
+        const remainingTime = timeInSeconds % 60;
 
-    if (seconds <= 0) {
-        clearInterval(timer);
-        if (isBreakTime) {
-            showBreakTimer(false);
-        } else {
-            showBreakTimer(true);
-            seconds = breakTime; 
-            isBreakTime = true;
-            startClock(); // Start break time countdown
+        display.textContent = `${String(minutes).padStart(2, '0')}:${String(remainingTime).padStart(2, '0')}`;
+
+        if (timeInSeconds <= 0) {
+            clearInterval(timer);
+            isRunning = false;
+            console.log(message);
+            if(typeof onComplete === 'function') {
+                onComplete();
+            } else {
+                timeInSeconds--;
+            }
         }
-    } else {
-        document.getElementById('timer').innerText = `${String(minutes).padStart(2, '0')}:${String(remainingSeconds).padStart(2, '0')}`;
-        seconds--;
-    }
-
+    }, 1000);
 }
 
-function showBreakTimer(show){
-    const breakTimer = document.getElementById('timer-break');
-    if(show) {
-        breakTimer.style.display = 'block';
-    } else {
-        breakTimer.style.display = 'none';
-    }
+function resetTimer() {
+    clearInterval(timer);
+    isRunning = false;
+    document.getElementById('timer-display').textContent = '00:00';
 }
 
-function hideBreakTime() {
-    showBreakTimer(false);
-}
-
-// increment timer +
-function incrementWorkTime() {
-    seconds += 1; // increase by 1 minute
-    updateWorkTimeValue(); 
-    updateClock();
-}
-
-
-// decrement timer -
-function decrementWorkTime() {
-    if (seconds > 1) {
-    seconds -= 1; // decrease by 1 minute
-    updateWorkTimeValue();
-    updateClock();
-    }
-}
-
-function updateWorkTimeValue() {
-   document.getElementById('work-time-value').innerText = seconds;
-}
-
-function updateBreakTime() {
-    const breakTimeInput = document.getElementById('break-time-input');
-    breakTime = parseInt(breakTimeInput.value, 10);
-}

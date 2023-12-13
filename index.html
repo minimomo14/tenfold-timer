@@ -12,29 +12,31 @@
         <div class="top-bar" id="top-bar">
           <h2>Tenfold BJJ - Timer</h2>  
           <br>
-          <h5 class="z-index"></h5>
+          
         </div>
 
         <!-- timer control button -->
         <div class="button-wrapper">
-            <a href="#" class="wrapper-effect" id="start-button" onclick="startClock()"><i class="material-icons">alarm-on</i>START</a>
-            <a href="#" class="wrapper-effect" id="pause-button" onclick="pauseClock()"><i class="material-icons">pause</i>PAUSE</a>
-            <a href="#" class="wrapper-effect" id="reset-button" onclick="clearClock()"><i class="material-icons">clear</i>RESET</a>
-        </div>
+            <div class="timer-display" id="timer-display">00:00</div>
+            <button id="start-button" onclick="startTimer()">START</button>
+            <!-- <button id="pause-button" onclick="pauseTimer()">PAUSE</button> -->
+            <button id="reset-button" onclick="resetTimer()">RESET</button>
 
-        <!-- timer-clock -->
+        </div>
+<!-- 
+        timer-clock
         <div class="row">
            <div class="app-wrapper" id="app-wrapper">
-            <!-- clock -->
+            clock
             <div id="timer">
                 <div id="timer">
                    00:00
                 </div>
-                <!-- break timer -->
+                break timer
                 <div class="timer-break" id="timer-break">
                     BREAK
                 </div>
-                <!-- <div id="current-timer">
+                <div id="current-timer">
                     <div id="timer-left" class="hidden">
                         <h3>TIME-LEFT</h3><br>
                         <span class="time-left-numbers">{{timerTimes.workTime}}</span>
@@ -47,10 +49,10 @@
                         <h4>ROUND</h4><br>
                         <span class="round-numbers">{{rounds.roundsLeft}}/{{rounds.totalRounds}}</span>
                     </div>
-                </div> -->
-            </div>
+                </div>
+            </div> -->
 
-            <!-- Options grid -->
+            <!-- Options grid
             <div id="options">
                 <div class="switch">
                     <p>SOUNDS: 
@@ -70,15 +72,15 @@
                     <p>TIMER:  <span id="work-time-value">360</span></p>
                     <button onclick="incrementWorkTime()">+</button>
                    
-                    <!-- <button onclick="updateWorkTime()">Set</button> -->
+                    <button onclick="updateWorkTime()">Set</button>
                 </div>
     
                 <div class="option-input">
                     <p>BREAK TIME (seconds): </p>
                     <input type="number" id="break-time-input" value="45">
                     <button onclick="updateBreakTime()">Set</button>
-                </div>
-        </div> 
+                </div> -->
+        <!-- </div>  -->
         </div>
     </div>
 

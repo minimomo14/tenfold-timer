@@ -3,6 +3,11 @@
 body {
     font-family: 'Montserrat', sans-serif;
     font-size: 2em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
 }
 
 .wrapper {
@@ -10,9 +15,12 @@ body {
     margin-top: 50px;
 }
 
-#timer {
+
+
+#timer-display {
     font-size: 2em;
     margin-top: 20px;
+    margin-bottom: 10px;
 }
 
 #timer-break {
@@ -20,6 +28,13 @@ body {
     color: red;
     background-color: black;
     font-size: 2em;
+}
+
+button {
+    font-size: 1em;
+    padding: 5px 10px;
+    margin: 5px;
+    cursor: pointer;
 }
 
 .button-wrapper {
