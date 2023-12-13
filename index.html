@@ -10,7 +10,7 @@
 
 <body>
     <header>
-        <div class="wrapper" id="wrapper">
+        <div class="app-wrapper" id="app-wrapper">
             <!-- timer top-bar -->
             <div class="top-bar" id="top-bar">
                 <h2 id="timer-title">Tenfold BJJ - Timer</h2>
@@ -21,16 +21,26 @@
     </header>
 
     <main>
-        <!-- timer control button -->
-        <div class="button-wrapper">
-            <div class="timer-display" id="timer-display">00:00</div>
-            <button id="start-button" onclick="startTimer()">START</button>
-            <button id="pause-button" onclick="pauseTimer()">PAUSE</button>
-            <button id="reset-button" onclick="resetTimer()">RESET</button>
-
+        <!-- timer clock -->
+        <div class="row">
+            <div class="app-wrapper" id="app-wrapper">
+                <!-- clock -->
+                <div class="timer-display" id="timer-display">00:00</div>
+                <!-- break timer -->
+                <div class="timer-break" id="timer-break">
+                    BREAK
+                </div>
+                <div class="button-wrapper">
+                    <button id="start-button" onclick="startTimer()">START</button>
+                    <button id="pause-button" onclick="pauseTimer()">PAUSE</button>
+                    <button id="reset-button" onclick="resetTimer()">RESET</button>
+                </div>
+            </div>
         </div>
+
     </main>
 
     <script type="text/javascript" src="./script.js"></script>
 </body>
+
 </html>
