@@ -48,12 +48,24 @@ function resetTimer() {
 
 // Add function to update current date and time
 function updateCurrentDateTime() {
-    const currentDateTimeElement = document.getElementById('current-date-time');
+    const currentDate = document.getElementById('current-date');
+    const currentTime = document.getElementById('current-time');
+
+    // For the current date and time
     const now = new Date();
-    const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric', second: 'numeric', hour12: true };
-    const formattedDateTime = now.toLocaleDateString('en-US', options);
-    currentDateTimeElement.textContent = formattedDateTime;
+    const optionsDate = { weekday: 'short', year: 'numeric', month: 'long', day: 'numeric'};
+    const optionsTime = { hour: 'numeric', minute: 'numeric', hour12: true };
+    
+    const formattedDate = now.toLocaleString('en-US', optionsDate);
+    const formattedTime = now.toLocaleString('en-US', optionsTime);
+
+    currentDate.textContent = formattedDate;
+    currentTime.textContent = formattedTime;
+
+    console.log(formattedDate)
+    console.log(formattedTime)
 }
 
 // Update current date and time initially
 updateCurrentDateTime();
+console.log("is here!")
