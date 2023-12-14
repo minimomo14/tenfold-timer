@@ -3,6 +3,30 @@ let timer;
 // let breakTime = 5; // set default break timer in 45 seconds
 let isBreakTime = false;
 
+// Add function to update current date and time
+function updateCurrentDateTime() {
+    const currentDate =
+        document.getElementById('current-date');
+    const currentTime =
+        document.getElementById('current-time');
+
+    // For the current date and time
+    const now = new Date();
+    const optionsDate = { weekday: 'short', year: 'numeric', month: 'long', day: 'numeric' };
+    const optionsTime = { hour: 'numeric', minute: 'numeric', hour12: true };
+
+    const formattedDate = now.toLocaleString('en-US', optionsDate);
+    const formattedTime = now.toLocaleString('en-US', optionsTime);
+
+    currentDate.textContent = formattedDate;
+    currentTime.textContent = formattedTime; setTimeout(updateCurrentDateTime, 1000)
+
+    //check if date and time is working
+    //console.log(formattedDate)
+    console.log( "clock ticking",formattedTime)
+}
+
+
 function startTimer() {
     pauseTimer();
     timer = setInterval(updateTimer, 1000);
@@ -27,7 +51,7 @@ function getWorkTime() {
     workTimeInput.addEventListener('input', handleInputUpdates);
 
     return parseInt(workTimeInput.value, 10) || 3;
-} 
+}
 
 
 function getBreakTime() {
@@ -36,7 +60,7 @@ function getBreakTime() {
     breakTimeInput.addEventListener('input', handleInputUpdates);
 
     return parseInt(breakTimeInput.value, 10) || 5;
-} 
+}
 
 
 function handleInputUpdates() {
@@ -59,7 +83,7 @@ function updateTimer() {
         if (isBreakTime) {
             isBreakTime = false;
             hideBreakTime(true);
-           startTimer(); // Start the timer for the new interval
+            startTimer(); // Start the timer for the new interval
         } else {
             isBreakTime = true;
             hideBreakTime(false);
@@ -74,7 +98,7 @@ function updateTimer() {
         }
 
         // currentTimer--;
-        console.log("is current number?",currentTimer)
+        console.log("is current number?", currentTimer)
     }
 
 }
@@ -104,28 +128,8 @@ function playCountdownSound() {
 }
 
 
-// Add function to update current date and time
-function updateCurrentDateTime() {
-    const currentDate = document.getElementById('current-date');
-    const currentTime = document.getElementById('current-time');
-
-    // For the current date and time
-    const now = new Date();
-    const optionsDate = { weekday: 'short', year: 'numeric', month: 'long', day: 'numeric' };
-    const optionsTime = { hour: 'numeric', minute: 'numeric', hour12: true };
-
-    const formattedDate = now.toLocaleString('en-US', optionsDate);
-    const formattedTime = now.toLocaleString('en-US', optionsTime);
-
-    currentDate.textContent = formattedDate;
-    currentTime.textContent = formattedTime;
-
-    //check if date and time is working
-    console.log(formattedDate)
-    console.log(formattedTime)
-}
 
 // Update current date and time initially
-updateCurrentDateTime();
+// updateCurrentDateTime();
 console.log("current!")
 updateTimer();
