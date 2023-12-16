@@ -6,57 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tenfold BJJ - Timer</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flipclock/0.7.8/flipclock.css" />
 </head>
-
-<body onload="updateCurrentDateTime()">
-    <header>
-        <div class="app-wrapper" id="app-wrapper" >
-            <!-- timer top-bar -->
-            <div class="top-bar" id="top-bar">
-                <h2 id="timer-title">Tenfold BJJ - Timer</h2>
-                <br>
-                <h3 id="current-date"></h3>
-                <h3 id="current-time"></h3>
-            </div>
-    </header>
-
-    <main>
-        <!-- timer clock -->
-        <div class="row">
-            <div class="app-wrapper" id="app-wrapper">
-                <!-- clock -->
-                <div class="timer-display" id="timer-display">00:00</div>
-                <!-- break timer -->
-                <div class="timer-break" id="timer-break">
-                    BREAK
-                </div>
-                <div class="button-wrapper">
-                    <button id="start-button" onclick="startTimer()">START</button>
-                    <button id="pause-button" onclick="pauseTimer()">PAUSE</button>
-                    <button id="reset-button" onclick="resetTimer()">RESET</button>
-                </div>
-            </div>
-        </div>
-
-        <!-- Options grid -->
-        <div id="options">
-            <div class="option-input">
-                <p>WORK TIME (seconds): </p>
-                <input type="number" id="work-time-input" value="">
-            </div>
-
-            <div class="option-input">
-                <p>BREAK TIME (seconds): </p>
-                <input type="number" id="break-time-input" value="">
-            </div>
-        </div>
-
-        <!-- Audio element for the countdown sound -->
-        <audio id="countdownSound" src="path/to/countdown-sound.mp3"></audio>
-
-    </main>
-
+<body>
+    
+</body>
     <script type="text/javascript" src="./script.js"></script>
+
 </body>
 
 </html>

@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap');
 
+
 body {
     font-family: 'Montserrat', sans-serif;
     font-size: 2.5em;
@@ -11,53 +12,7 @@ body {
     margin: 0;
 }
 
-.app-wrapper {
+.app{
     text-align: center;
     margin-top: 50px;
-}
-
-
-#timer-display {
-    font-size: 2em;
-    margin-top: 20px;
-    margin-bottom: 10px;
-}
-
-#timer-break {
-    color: red;
-    background-color: black;
-    font-size: 2em;
-    display: none;
-}
-
-button {
-    font-size: 1em;
-    padding: 5px 10px;
-    margin: 5px;
-    cursor: pointer;
-}
-
-.button-wrapper {
-    margin-top: 20px;
-    text-align: center;
-}
-
-#options {
-    margin-top: 20px;
-}
-
-.option-input {
-    display: flex;
-    align-items: center;
-    margin-bottom: 10px;
-}
-
-.option-input button {
-    padding: 5px;
-}
-
-#work-time-value {
-    font-size: 1.2em;
-    margin-left: 10px;
-    margin-right: 10px;
 }
