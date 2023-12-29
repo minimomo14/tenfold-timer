@@ -11,7 +11,6 @@ body {
     height: 100vh;
     margin: 0;
 	/* add background-image */
-	/* background-image: ; */
 	background-image: linear-gradient(to right, rgb(141, 162, 195), rgb(0, 145, 255));;
 	background-size: cover;
 	background-position: center;
@@ -19,8 +18,11 @@ body {
 }
 
 .app{
+	width: 1000px;
+	padding: 100px 0;
+	margin: 0 auto;
     text-align: center;
-    margin-top: 50px;
+    border: 3px solid whitesmoke;
 }
 .header_title{
 	font-size: 400;
@@ -33,16 +35,6 @@ body {
 	font-weight: bold;
 }
 
-/* body {
-	font-family: 'Oswald', 'Helvetica Neue', arial;
-	font-weight: 100;
-	text-align: center;
-	text-transform: uppercase;
-	width: 100%;
-	margin: 0;
-	color: rgba(0,0,0,.7);
-	background: cyan;
-} */
 
 h2 {
 	letter-spacing: 2px;
@@ -78,9 +70,6 @@ input {
 }
 
 div#app {
-	background: rgba(0,0,0,.1);
-	width: 40%;
-	margin: 0 auto;
 	margin-top: 20px;
 	padding-bottom: 20px;
 	border-radius: 20px;
@@ -123,10 +112,13 @@ button:hover {
 	background: rgba(0,0,0,.15);
 }
 
-@media (max-width: 767px) {
+
+
+@media only screen and (min-width: 601px) and (max-width: 768px) {
 
 	div#app {
 		width: 90%;
+		background-image: linear-gradient(to right, rgb(0, 145, 255), rgb(141, 162, 195));;
 	}
 
 	p#title {
