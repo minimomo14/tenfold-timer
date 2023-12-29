@@ -8,27 +8,37 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flipclock/0.7.8/flipclock.css" />
 </head>
+
 <body onload="updateCurrentDateTime()">
     <div class="app" id="app">
-        <h2>TENFOLD BJJ</h2>
-        <p id="current-date"></p>
-        <p id="current-time"></p>
-        <br>
-        <p class="controls">
-            ROUND TIMER: <input type="text" id="intervalTime" value="20">
-            BREAK: <input type="text" id="breakTime">
-            <button id="setTimer">UPDATE</button>
-        </p>
-        <h1 id="status">GO!</h1>
-        <p class="large">
-            <span id="sec">20</span>
-        </p>
-        <button id="start">START</button>
-        <button id="pause">PAUSE</button>
-        <button id="reset">RESET</button>
-
+        <header class="header_container">
+            <div class="header_title">
+                <h2>TENFOLD BJJ</h2>
+                <img src="./image/Artboard_4.png" alt="tenfold bjj logo">
+            </div>
+            <div class="local-time">
+                <p id="current-date"></p>
+                <p id="current-time"></p>
+            </div>
+        </header>
+        <!-- control timer  -->
+        <main>
+            <div class="control_container">
+                <p class="controls">
+                    ROUND TIMER: <input type="text" id="intervalTime" value="20">
+                    BREAK: <input type="text" id="breakTime">
+                    <button id="setTimer">UPDATE</button>
+                </p>
+                <h1 id="status">GO!</h1>
+                <p class="large">
+                    <span id="sec">20</span>
+                </p>
+                <button id="start">START</button>
+                <button id="pause">PAUSE</button>
+                <button id="reset">RESET</button>
+            </div>
+        </main>
     </div>
-
     <script type="text/javascript" src="./script.js"></script>
 
 </body>

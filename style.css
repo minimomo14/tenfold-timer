@@ -10,15 +10,30 @@ body {
     justify-content: center;
     height: 100vh;
     margin: 0;
+	/* add background-image */
+	/* background-image: ; */
+	background-image: linear-gradient(to right, rgb(141, 162, 195), rgb(0, 145, 255));;
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
 }
 
 .app{
     text-align: center;
     margin-top: 50px;
 }
+.header_title{
+	font-size: 400;
+	font-weight: bold;
+}
+.local-time {
+	text-align: center;
+	padding: 1rem;
+	font-size: 2em;
+	font-weight: bold;
+}
 
-
-body {
+/* body {
 	font-family: 'Oswald', 'Helvetica Neue', arial;
 	font-weight: 100;
 	text-align: center;
@@ -27,7 +42,7 @@ body {
 	margin: 0;
 	color: rgba(0,0,0,.7);
 	background: cyan;
-}
+} */
 
 h2 {
 	letter-spacing: 2px;
